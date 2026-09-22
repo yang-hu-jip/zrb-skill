@@ -133,6 +133,18 @@ def cmd_cancel(args):
         print("⚠️ 未完成:", res["reason"])
 
 
+def cmd_clip(args):
+    """读取剪贴板（需 AdbKeyboard，已随 u2 init 安装）"""
+    dev = Device(args.serial)
+    try:
+        dev.d.set_input_ime(True)
+        txt = dev.d.clipboard
+    except Exception as e:
+        print(json.dumps({"ok": False, "err": str(e)}, ensure_ascii=False))
+        return
+    print(txt)
+
+
 def cmd_apply(args):
     dev = Device(args.serial)
     print(json.dumps(apply(dev), ensure_ascii=False))
@@ -219,6 +231,9 @@ def main():
     s.add_argument("--keyword", required=True, help="任务标题关键词, 如 京东")
     s.add_argument("--reason", default="", help="取消原因(记入台账)")
     s.set_defaults(func=cmd_cancel)
+
+    s = sub.add_parser("clip", help="读取手机剪贴板")
+    s.set_defaults(func=cmd_clip)
 
     s = sub.add_parser("apply", help="报名当前任务")
     s.set_defaults(func=cmd_apply)
