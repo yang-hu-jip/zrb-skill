@@ -1,0 +1,52 @@
+# 页面定位表（探索一次沉淀，永久复用；App 大版本改版后重新校准）
+zrb:
+  pkg: com.jianzhiku.zhongrenbang
+  home:
+    hall_entry: "悬赏大厅"
+    shortcuts: ["抢红包", "每日打卡", "积分变现", "兼职酷"]
+  hall:
+    tabs: ["为你推荐", "热门", "快速审"]
+    card_title_prefix: "【"
+    pending_pill: "待提交"
+  detail:
+    # 报名状态识别
+    apply_btn_not_applied: "立即报名"
+    apply_btn_applied: "重新报名"
+    safety_banner: "安全保障"
+    # 步骤区
+    step_open_link: "打开链接"
+    step_download_qr: "下载二维码图片"
+    qr_longpress_hint: "长按识别图中二维码"
+    qr_menu_wechat: "微信扫一扫"
+    qr_menu_browser: "浏览器"
+    qr_fail_dialog_download: "下载二维码"
+    qr_dialog_ack: "知道了"
+    # 证据与提交
+    upload_evidence: "上传截图"
+    feedback_placeholder: "体验过程中自己的建议或想法。"
+    submit_btn: "提交"
+  popups:
+    safe_buttons: ["同意并继续", "始终允许", "仅在使用中允许", "知道了", "不再提示"]
+
+browser:
+  open_app_confirm: ["打开京东", "打开APP", "立即打开"]
+  allow_jump: ["允许"]
+
+# 人工闸门关键词（铁律2）——仅作检测提示
+human_gate:
+  keywords: ["验证码", "滑块验证", "安全验证", "请登录", "本机号码一键登录",
+             "人脸识别", "实名认证", "支付", "确认付款"]
+
+# 依赖App预装映射：任务关键词 -> 包名（执行前 ensure_apps 检查）
+app_map:
+  京东: com.jingdong.app.mall
+  得物: com.shizhuang.duapp
+  抖音: com.ss.android.ugc.aweme
+  麦当劳: com.mcdonalds.app.cn
+  淘宝: com.taobao.taobao
+  支付宝: com.eg.android.AlipayGphone
+  拼多多: com.xunmeng.pinduoduo
+  美团: com.sankuai.meituan
+  快手: com.smile.gifmaker
+  微信: com.tencent.mm
+

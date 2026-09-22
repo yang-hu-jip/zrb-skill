@@ -1,0 +1,16 @@
+# 模板：二维码任务（走极速通道）
+name: 二维码扫码单
+match_keywords: ["二维码", "长按识别", "识别图中二维码", "扫码"]
+amount_min: 0.3
+precheck_url: true          # 解码出的URL必须先预检存活
+steps:
+  - action: qr_fastpath      # 触发落盘→pull→本地解码→得到URL
+  - action: precheck         # URL 存活预检（死链直接放弃）
+  - action: apply            # 预检通过才报名
+  - action: open_url         # 投递URL(浏览器/目标App)
+  - action: screenshot
+  - action: upload
+  - action: fill_feedback
+  - action: submit
+evidence_count: 1
+submit_note_template: "已识别二维码并完成操作，截图如下"

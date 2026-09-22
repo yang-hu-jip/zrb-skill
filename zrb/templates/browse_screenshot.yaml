@@ -1,0 +1,16 @@
+# 模板：浏览器开链接 + 截图上传（最简单、全自动可行）
+name: 浏览器链接截图单
+match_keywords: ["打开链接", "浏览器打开", "截图上传"]
+amount_min: 0.3
+precheck_url: true          # 报名前探测链接存活
+steps:
+  - action: apply            # 报名
+  - action: click_step_btn   # 点步骤区"打开链接"
+  - action: wait_load        # 条件轮询等待页面加载
+  - action: screenshot       # 证据: 目标页截图
+  - action: back_to_zrb
+  - action: upload           # 上传控件选图
+  - action: fill_feedback    # AI 生成反馈文案
+  - action: submit           # ✋ 熟手模式在此确认
+evidence_count: 1
+submit_note_template: "已按步骤打开链接并截图，请审核"

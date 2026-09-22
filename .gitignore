@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.codebuddy/
+zrb/journal.jsonl
+zrb/tasks.json
+zrb/*.png
+*.log
